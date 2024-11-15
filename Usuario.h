@@ -1,43 +1,56 @@
 //
 //  Usuario.h
-//  Biblioteca personal corr
+//  Projecto biblioteca prueba
 //
-//  Created by Isabel Vaca on 08/11/24.
+//  Created by Isabel Vaca on 14/11/24.
 //
-#ifndef USUARIO_H
-#define USUARIO_H
 
 #include <string>
 #include <iostream>
-#include <list>
-#include "Libros.h"
-#include "Estanteria.h"
+#include "Libro.h"
+
 
 using namespace std;
 
 class Usuario {
 private:
-    string nombre;
-    Estanteria estanteria;
-
+    string nombre_usuario;
+    string nombre_estanteria;
+    string estanteria_usuario;
+    
 public:
-    Usuario(string n, string nombre_estanteria) : nombre(n), estanteria(nombre_estanteria) {}
-
-    string get_nombre() {
-        return nombre;
+    Usuario(): nombre_usuario(""), nombre_estanteria(""), estanteria_usuario(""){};
+    Usuario(string n,  string nom_e, string est_u): nombre_usuario(n),  nombre_estanteria(nom_e), estanteria_usuario(est_u) {}
+    
+    string get_nombre_usuario();
+    void set_nombre_usuario(string n);
+    string get_nombre_estanteria();
+    void set_nombre_estanteria(string nom_e);
+    string get_estanteria_usuario();
+    void set_estanteria_usuario(string est_u);
+    
+    void mostrar_estanteria(){
+        cout<< "Libros en estanteria " << nombre_usuario << ":" << estanteria_usuario << endl;
+        
     }
-
-    void set_nombre(string n) {
-        nombre = n;
-    }
-
-    void agregar_lib_estanteria(string n) {
-        estanteria.agregar_libro(n);
-    }
-
-    void mostrar_libros() {
-        estanteria.mostrar_libros();
-    }
+    
 };
-
-#endif 
+string Usuario::get_nombre_usuario(){
+        return nombre_usuario;
+}
+    
+void Usuario::set_nombre_usuario(string n){
+        nombre_usuario = n;
+}
+string Usuario::get_nombre_estanteria(){
+        return nombre_estanteria;
+}
+void Usuario::set_nombre_estanteria(string nom_e){
+        nombre_estanteria = nom_e;
+}
+string Usuario::get_estanteria_usuario(){
+        return estanteria_usuario;
+}
+void Usuario::set_estanteria_usuario(string est_u){
+        estanteria_usuario = est_u;
+}
