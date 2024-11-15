@@ -7,7 +7,7 @@
 
 #include <string>
 #include <iostream>
-#include "Libro.h"
+#include "Libros.h"
 
 
 using namespace std;
