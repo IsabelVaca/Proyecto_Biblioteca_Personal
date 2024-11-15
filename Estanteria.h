@@ -1,13 +1,12 @@
 //
-//  Estantería.h
-//  Biblioteca personal corr
+//  Estanteria.h
+//  Projecto biblioteca prueba
 //
-//  Created by Isabel Vaca on 08/11/24.
+//  Created by Isabel Vaca on 14/11/24.
 //
-#ifndef ESTANTERIA_H  
-#define ESTANTERIA_H
-#include <string>
-#include <list>
+
+
+#include<string>
 #include <iostream>
 
 using namespace std;
@@ -15,21 +14,49 @@ using namespace std;
 class Estanteria{
 private:
     string nombre;
-    list<string> l_libros;
-
+    string coleccion_libros[100];
+    int lim_colecc;
+    
 public:
-    Estanteria() {}  
-    Estanteria(string n): nombre(n) {}
+    Estanteria(): nombre(" "), lim_colecc(0){};
+    Estanteria(string n): nombre(n), lim_colecc(0){};
+    
+    string get_nombre();
+    string get_coleccion_libros();
+    
+    void set_nombre(string n);
+    void agrega_libro(string);
+    void mostrar_estanteria();
 
-    void agregar_libro(string n){
-        l_libros.push_back(n);
+};
+
+
+string Estanteria::get_nombre(){
+    return nombre;
+}
+void Estanteria::set_nombre(string n){
+    nombre = n;
+}
+void Estanteria::agrega_libro(string libro){
+    if(lim_colecc<100){
+        coleccion_libros[lim_colecc]=libro;
+        lim_colecc++;
     }
-
-    void mostrar_libros(){
-        cout << "Libros en estanteria: " << nombre << endl;
-        for (auto libro : l_libros) {
-            cout << libro << endl;
+    else {
+        cout << "Estanteria llena" << endl;
+    }
+}
+string Estanteria::get_coleccion_libros(){
+    string libros;
+    for (int i=0; i<lim_colecc;i++){
+        libros+= coleccion_libros[i];
+        if (i<lim_colecc - 1) {
+            libros+= ", ";
         }
     }
-};
-#endif
+    return libros;
+        
+}
+void Estanteria::mostrar_estanteria(){
+    cout<< "Libros en estanteria " << nombre << ":" <<get_coleccion_libros() << endl;
+}
