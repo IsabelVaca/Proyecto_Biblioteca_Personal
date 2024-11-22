@@ -1,40 +1,38 @@
 //
 //  Usuario.h
-//  Projecto biblioteca prueba
+//  Biblioteca personal
 //
-//  Created by Isabel Vaca on 14/11/24.
+//  Created by Isabel Vaca on 07/11/24.
 //
+#ifndef USUARIO_H
+#define USUARIO_H
 
 #include <string>
 #include <iostream>
-#include "Libros.h"
-
+#include "Libro.h"
+#include "Estanteria.h"
 
 using namespace std;
 
 class Usuario {
 private:
     string nombre_usuario;
-    string nombre_estanteria;
-    string estanteria_usuario;
+    Estanteria estanteria;
     
 public:
-    Usuario(): nombre_usuario(""), nombre_estanteria(""), estanteria_usuario(""){};
-    Usuario(string n,  string nom_e, string est_u): nombre_usuario(n),  nombre_estanteria(nom_e), estanteria_usuario(est_u) {}
-    
+    Usuario(): nombre_usuario("") {};
+    Usuario( string n ):  nombre_usuario(n) {}
     string get_nombre_usuario();
     void set_nombre_usuario(string n);
-    string get_nombre_estanteria();
-    void set_nombre_estanteria(string nom_e);
-    string get_estanteria_usuario();
-    void set_estanteria_usuario(string est_u);
-    
-    void mostrar_estanteria(){
-        cout<< "Libros en estanteria " << nombre_usuario << ":" << estanteria_usuario << endl;
-        
-    }
+    void agregar_Libro(Libro& libro, string estado);
+    void mostrar_estanteria();
     
 };
+
+void Usuario::agregar_Libro(Libro& libro, string estado){
+    estanteria.agrega_libro(libro, estado);
+}
+
 string Usuario::get_nombre_usuario(){
         return nombre_usuario;
 }
@@ -42,15 +40,8 @@ string Usuario::get_nombre_usuario(){
 void Usuario::set_nombre_usuario(string n){
         nombre_usuario = n;
 }
-string Usuario::get_nombre_estanteria(){
-        return nombre_estanteria;
+void Usuario:: mostrar_estanteria(){
+    cout<< "Estanteria de: " << nombre_usuario << ":\n";
+    estanteria.mostrar_estanteria();
 }
-void Usuario::set_nombre_estanteria(string nom_e){
-        nombre_estanteria = nom_e;
-}
-string Usuario::get_estanteria_usuario(){
-        return estanteria_usuario;
-}
-void Usuario::set_estanteria_usuario(string est_u){
-        estanteria_usuario = est_u;
-}
+#endif
