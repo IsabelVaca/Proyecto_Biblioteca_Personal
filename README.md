@@ -8,26 +8,9 @@ Este programa lo que hace es mantener un registro de diferentes cosas, los libro
 libros pendientes, libros fisicos y digitales y el tiempo de lectura de  libros fisicos. 
 
 # Acciones del usuario
-El usuario puede ingresar su nombre y ir agregando libros desde el main, de tipo fisico o digital. Dependiendo del tipo de libro seria los parametros a ingresar. 
-Se puede observar la estanteria completa con todos los libros de todas las categorias, tambien se pueden obtener datos especificos, para hacer esto se debe crear una variable 
-del tipo de libro que se quiere buscar de esta manera.
-Se asume que existe un libro digital con titulo A thousand splendid suns
+Ir ingresando los datos en el orden del menu, cada opcion muestra una funcion diferente del programa. 
 
- Libro_digital libro3 = usuario.get_estanteria().buscar_lib_digi("A thousand splendid suns");  
- libro3.set_tamano_archivo(3.0);  // Cambiar el tamaño del archivo
 
-// Verificar los cambios en el libro digital
- cout << "Verificando los cambios del libro digital:\n";
-cout << "Título: " << libro3.get_titulo() << endl;
-out << "Tamaño del archivo: " << libro3.get_tamano_archivo() << " MB\n";
-
-Utilizamos el get_estanteria para poder usarlo fuera de la clase de usuario y usamos el metodo .buscar_lib_digi
-Se puede hacer igual para libros fisicos, solo usando el metodo para buscar libros fisicos y crear la variable pero de tipo libro fisico 
-
-Tambien se puede checar el tiempo en minutos  estimado de lectura de un libro fisico de la siguiente manera:
-// Calcular tiempo de lectura de un libro físico
-  float tiempo_lectura = usuario.calcular_tiempo_lib_fisi("Cien años de soledad", 2); (el segundo parametro son los minutos por pagina)
-  cout << "Tiempo estimado de lectura de 'Cien años de soledad': " << tiempo_lectura << " minutos." << endl;
 
 # Clases
 Hay 5 clases diferentes:
@@ -49,7 +32,7 @@ Esta clase hereda de Libro, tiene como atributo extra en tamaño del archivo.
 Tiene metodos getters, setters y para mostrar los datos del libro. 
 -Usuario:
 La clase usuario representa a un usuario que puede poseer su propia estanteria, con sus colecciones de libros, tiene composicion con 
-estanteria ya que si el usuario desaparece tambien su estanteria. 
+estanteria y los tipos de libros ya que si el usuario desaparece tambien su estanteria y los libros creados en usuario. 
 El usuario tiene atributos de nombre y estanteria. 
 Tiene metodos getters, setters, para agregar libros fisicos, digitales, calcular tiempo de lectura solo de libros fisicos y para mostrar todos sus libros. 
 
@@ -67,12 +50,18 @@ correr en windows: "a.exe"
 # Correciones
 
 Correciones Avance 1:
+Sub competencia: Estandares
 Agregué en el readme instrucciones para poder correr el código 
+
 Correciones avance 2:
 Retroalimentación: "Tu implementación de herencia  esta bien indicada con la flecha , sin embargo, esa herencia se podría implementar directamente en tu clase padre con un constructor con esos parámetros "
+Sub competencia: Toma de decisiones 
 Corregí la implementación de la herencia agregando un constructor con los parámetros directamente en la clase de Libro. 
+
 Correciones Avance 3:
+Sub competencia: Toma de decisiones 
 Implementé las clases en c++ siguiendo el diseño del UML.
+Subcompetencia: Estandares
 Elimine caracteres especiales y agregue comentarios para mejorar el formato.
 
 
