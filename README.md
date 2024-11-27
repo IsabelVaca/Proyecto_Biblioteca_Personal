@@ -64,4 +64,23 @@ Implementé las clases en c++ siguiendo el diseño del UML.
 Subcompetencia: Estandares
 Elimine caracteres especiales y agregue comentarios para mejorar el formato.
 
+# Investigacion extra
+
+Para el menu del main tuve problemas con los inputs asi que unvestigue algunas funciones que me sirvieron a solucionar el problema.
+cin.fail() para ver si hay un error en alguna de las funciones para verificar las entradas. 
+cin.clear() para limpiar el error
+Esto fue porque anteriormente si se ingresaba un dato incorrecto el menu se imprimia una y otra vez. 
+en esta linea while (cin.get() != '\n') 
+lo que hace es descartar cualquier caracter en la entrada que haya causado el error y no se quede con los datos incorrectos
+cin.get() lee un caracter y != "\n" es para que se detenga hasta que haya un salto de linea
+ws es para quitar espacios en blanco antes de ingresar el dato 
+getline() es para leer la linea completa hasta que haya un salto
+ejemplo getline(cin, titulo); lee la linea completa y guarda la variable titulo
+
+https://www.geeksforgeeks.org/cin-get-in-c-with-examples/
+https://cplusplus.com/reference/istream/ws/
+https://www.geeksforgeeks.org/getline-string-c/
+https://www.geeksforgeeks.org/how-to-use-cin-fail-method-in-cpp/
+https://www.geeksforgeeks.org/cin-clear-function-in-cpp/
+
 
