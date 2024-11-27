@@ -1,9 +1,19 @@
-//
-//  Estanteria.h
-//  Biblioteca personal corregido lol
-//
-//  Created by Isabel Vaca on 26/11/24.
-//
+/*
+ *
+ * Biblioteca personal
+ *Isabel Vaca Sánchez
+ *A01352522
+ *
+ */
+
+/*
+ * Clase Estanteria contiene metodos para guardar los diferentes tipos de libros en la estanteria del usuario
+ *Dependiendo de las caracteristicas del libro se guardara en las siguientes listas: Libros leidos, libros en lectura, libros
+ *pendientes y dependiendo de si es libro digital o fisico.
+ *Tiene un metodo para mostrar la estanteria completa y otro para buscar el objeto del libro por medio del titulo.
+ *
+ */
+
 #ifndef ESTANTERIA_H
 #define ESTANTERIA_H
 
@@ -15,10 +25,11 @@
 
 using namespace std;
 
-// Clase Estanteria
+// Declaracion de la clase Estanteria
 class Estanteria {
-    //Atributos
+   
 private:
+    // Se declaran las variables y los arreglos
     string coleccion_titulos[150];         // Títulos de todos los libros
     Libro libros_leidos[50];              // Libros leidos
     Libro libros_leyendo[50];             // Libros en lectura
@@ -34,12 +45,12 @@ private:
     int lim_pendientes;
 
 public:
-    //Constructor
+    //Constructor por default
     Estanteria()
         : lim_colecc(0), lim_leidos(0), lim_leyendo(0),
           lim_libros_dig(0), lim_libros_fisi(0), lim_pendientes(0) {}
 
-    // Metodos
+    // Se declaran los metodos
     void agrega_libro_dig(Libro_digital& libro);
     void agrega_libro_fisi(Libro_fisico& libro);
     void agregar_libro_pendiente(Libro& libro);
@@ -50,7 +61,12 @@ public:
     
 };
 
-// Metodo para agregar un libro digital
+/*
+ *Agrega libro digital a la lista de libros digitales, agrega el titulo a la lista de collecion de titulos,
+ *agrega el libro a la lista del estado correspondiente. (leido, en lectura, pendiente)
+ *@param Objeto Libro_digital:libro
+ *@return
+ */
 void Estanteria::agrega_libro_dig(Libro_digital& libro) {
     if (lim_colecc < 150) {
         coleccion_titulos[lim_colecc++] = libro.get_titulo();
@@ -81,7 +97,13 @@ void Estanteria::agrega_libro_dig(Libro_digital& libro) {
     }
 }
 
-// Método para agregar un libro físico
+/*
+ *Agrega objeto libro fisico a la lista de libros fisicos,agrega el titulo a la lista de collecion de titulos,
+ *agrega el libro a la lista del estado correspondiente. (leido, en lectura, pendiente)
+ *
+ *@param Libro_fisico: libro
+ *@return
+ */
 void Estanteria::agrega_libro_fisi(Libro_fisico& libro) {
     if (lim_colecc < 150) {
         coleccion_titulos[lim_colecc++] = libro.get_titulo();
@@ -112,7 +134,12 @@ void Estanteria::agrega_libro_fisi(Libro_fisico& libro) {
     }
 }
 
-// agregar libro pendiente
+/*
+*Agrega objeto libro a lista de libros pendientes
+*@param Libro:libro
+*@return
+*
+*/
 void Estanteria::agregar_libro_pendiente(Libro& libro) {
     if (lim_pendientes < 50) {
         libros_pendientes[lim_pendientes++] = libro;
@@ -121,7 +148,12 @@ void Estanteria::agregar_libro_pendiente(Libro& libro) {
     }
 }
 
-//mostrar libros pendientes
+/*
+ *Muestra los libros en la lista de libros pendientes
+ *@param
+ *@return
+ *
+ */
 void Estanteria::mostrar_libros_pendientes() {
     cout << "\n--- Libros pendientes ---\n";
     if (lim_pendientes == 0) {
@@ -133,32 +165,41 @@ void Estanteria::mostrar_libros_pendientes() {
     }
 }
 
-// Método para mostrar todos los libros de la estantería
+/*
+ *Muestra todos los libros de la estanteria del usuario
+ *@param
+ *@return
+ */
 void Estanteria::mostrar_estanteria() {
-    cout << "\n--- Coleccion de titulos ---\n";
+    cout << "\n--- Coleccion de titulos ---\n";//Coleccion de titulos
     for (int i = 0; i < lim_colecc; i++) {
         cout << coleccion_titulos[i] << endl;
     }
-    cout << "\n--- Libros fisicos ---\n";
+    cout << "\n--- Libros fisicos ---\n";// Libros en listan libros fisicos
     for (int i = 0; i < lim_libros_fisi; i++) {
         libros_fisicos[i].mostrar_libro_fisico();
     }
-    cout << "\n--- Libros digitales ---\n";
+    cout << "\n--- Libros digitales ---\n";//Libros en lista libros digitales
     for (int i = 0; i < lim_libros_dig; i++) {
         libros_digitales[i].mostrar_libro_digital();
     }
-    cout << "\n--- Libros leidos ---\n";
+    cout << "\n--- Libros leidos ---\n";//Libros en lista libros leidos
     for (int i = 0; i < lim_leidos; i++) {
         libros_leidos[i].mostrar_libro();
     }
-    cout << "\n--- Libros en lectura ---\n";
+    cout << "\n--- Libros en lectura ---\n";//Libros en lista libros en lectura
     for (int i = 0; i < lim_leyendo; i++) {
         libros_leyendo[i].mostrar_libro();
     }
     mostrar_libros_pendientes(); // Mostrar también los libros pendientes
 }
 
-// Metodos para buscar libros
+/*
+/
+/Busca el objeto del libro en el arreglo de libros digitales por medio del titulo
+/@param string: titulo
+/@return Libro_digital
+*/
 Libro_digital Estanteria::buscar_lib_digi(string titulo) {
     for (int i = 0; i < lim_libros_dig; i++) {
         if (libros_digitales[i].get_titulo() == titulo) {
@@ -168,6 +209,11 @@ Libro_digital Estanteria::buscar_lib_digi(string titulo) {
     cout << "Libro digital no encontrado\n";
     return Libro_digital();
 }
+/*
+/Busca el objeto del libro en el arreglo de libros fisicos por medio del titulo
+/@param string: titulo
+/@return Libro_fisico
+*/
 
 Libro_fisico Estanteria::buscar_lib_fisi(string titulo) {
     for (int i = 0; i < lim_libros_fisi; i++) {
