@@ -13,7 +13,6 @@
  *
  */
 #include <iostream>
-#include <limits>
 #include <string>
 #include "Estanteria.h"
 #include "Usuario.h"
