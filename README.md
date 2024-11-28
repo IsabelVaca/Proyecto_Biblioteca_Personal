@@ -21,15 +21,23 @@ Estos libros se guardan en arreglos, Estantería tiene composicion con usuario y
 Pero estanteria tiene agregacion con libros ya que existe la opcion de crear libros y ingresarlos en estanteria, si se elimina la estanteria 
 los libros siguen existiendo. 
 Entre sus metodos permite agregar libros, mostrar los libros de la estanteria y permite buscarlos para poder usar los getters y setters. 
+
+
 -Libro:
 Esta es la clase padre de Libro digital y libro fisico, les hereda los atributos de:
 Genero, autor, titulo, estado. Contiene getters y setters y un metodo para mostrar los datos del libro.
+
+
 -Libro fisico:
 Esta clase hereda de Libro, pero tiene como atributos extras el numero de paginas y la condicion ( nuevo o usado)
 Tiene metodos de getters, setters, para mostrar los datos del objeto y calcular el tiempo de lectura dependiendo de la velocidad de lectura por pagina. 
+
+
 -Libro digital:
 Esta clase hereda de Libro, tiene como atributo extra en tamaño del archivo.
 Tiene metodos getters, setters y para mostrar los datos del libro. 
+
+
 -Usuario:
 La clase usuario representa a un usuario que puede poseer su propia estanteria, con sus colecciones de libros, tiene composicion con 
 estanteria y los tipos de libros ya que si el usuario desaparece tambien su estanteria y los libros creados en usuario. 
