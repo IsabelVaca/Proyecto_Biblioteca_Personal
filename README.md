@@ -1,4 +1,4 @@
-# Proyecto_Biblioteca_Personal
+# Proyecto_Biblioteca_Personal Isabel Vaca Sánchez
 
 # Descripción general
 Este programa sirve como una biblioteca personal digital, le permite al usuario poder tener un registro respecto a sus libros.
